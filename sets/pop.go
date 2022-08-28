@@ -7,9 +7,9 @@ import (
 
 func (s *Set) Pop() (element any) {
 	rand.Seed(time.Now().UnixNano())
-	index := rand.Intn(len(s.Data))
+	index := rand.Intn(len(s.data))
 
-	element = s.Data[index]
-	s.Data = remove(s.Data, index)
+	element = s.data[index]
+	s.setData(remove(s.data, index))
 	return
 }

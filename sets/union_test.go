@@ -1,7 +1,6 @@
 package sets_test
 
 import (
-	"log"
 	"testing"
 
 	"github.com/lekoller/goexp/sets"
@@ -15,6 +14,5 @@ func TestUnion(t *testing.T) {
 
 	union := x.Union(y, z)
 
-	log.Println(union.Data)
-	require.Equal(t, 6, len(union.Data))
+	require.Equal(t, 6, len(union.Data()))
 }

@@ -3,8 +3,8 @@ package sets
 func (s *Set) SymmetricDifference(set *Set) (newSet *Set) {
 	newSet = s.Union(set)
 
-	for _, element := range set.Data {
-		for _, el := range s.Data {
+	for _, element := range set.data {
+		for _, el := range s.data {
 			if element == el {
 				newSet.Discard(el)
 			}
@@ -14,5 +14,5 @@ func (s *Set) SymmetricDifference(set *Set) (newSet *Set) {
 }
 
 func (s *Set) SymmetricDifferenceUpdate(set *Set) {
-	s.Data = s.SymmetricDifference(set).Data
+	s.setData(s.SymmetricDifference(set).data)
 }

@@ -1,5 +1,5 @@
 package sets
 
 func (s *Set) Clear() {
-	s.Data = nil
+	s.setData(nil)
 }

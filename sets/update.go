@@ -1,5 +1,5 @@
 package sets
 
 func (s *Set) Update(sets ...*Set) {
-	s.Data = s.Union(sets...).Data
+	s.setData(s.Union(sets...).Data())
 }
