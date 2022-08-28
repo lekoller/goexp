@@ -1,16 +1,24 @@
 package sets
 
-type Set interface {
-	[]any
+import (
+	"reflect"
+)
+
+type Set struct {
+	Data []any
+	Type reflect.Type
 }
 
-func NewSet[T comparable, S Set](members ...T) (set S) {
+func NewSet[T comparable](members ...T) (set *Set) {
+	set = &Set{}
+	set.Type = reflect.TypeOf(members[0])
+
 	appendToSet := func(m T) {
-		set = append(set, m)
+		set.Data = append(set.Data, m)
 	}
 	checkIfNew := func(m T) (first bool) {
 		first = true
-		for _, el := range set {
+		for _, el := range set.Data {
 			if el == m {
 				first = false
 			}
@@ -19,7 +27,7 @@ func NewSet[T comparable, S Set](members ...T) (set S) {
 	}
 
 	for _, member := range members {
-		switch len(set) {
+		switch len(set.Data) {
 		case 0:
 			appendToSet(member)
 		default:
@@ -29,4 +37,16 @@ func NewSet[T comparable, S Set](members ...T) (set S) {
 		}
 	}
 	return
+}
+
+func (s Set) checkIfNew(element any) bool {
+	arr := reflect.ValueOf(s.Data)
+
+	for i := 0; i < arr.Len(); i++ {
+		if arr.Index(i).Interface() == element {
+			return false
+		}
+	}
+
+	return true
 }
