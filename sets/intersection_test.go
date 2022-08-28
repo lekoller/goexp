@@ -51,3 +51,12 @@ func TestIntersection_Level4(t *testing.T) {
 
 	require.Equal(t, 0, len(result.Data()))
 }
+
+func TestIntersection_Numbers(t *testing.T) {
+	x := sets.NewSet[float64](2.4, 1, 47.8)
+	j := sets.NewSet[float64](2.4, 3, 45.8)
+
+	result := x.Intersection(j)
+
+	require.Equal(t, 1, len(result.Data()))
+}
