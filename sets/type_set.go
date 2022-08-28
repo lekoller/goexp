@@ -9,9 +9,9 @@ type Set struct {
 	Type reflect.Type
 }
 
-func NewSet[T comparable](members ...T) (set *Set) {
+func NewSet[T comparable](elements ...T) (set *Set) {
 	set = &Set{}
-	set.Type = reflect.TypeOf(members[0])
+	set.setType(elements[0])
 
 	appendToSet := func(m T) {
 		set.Data = append(set.Data, m)
@@ -26,13 +26,13 @@ func NewSet[T comparable](members ...T) (set *Set) {
 		return
 	}
 
-	for _, member := range members {
+	for _, element := range elements {
 		switch len(set.Data) {
 		case 0:
-			appendToSet(member)
+			appendToSet(element)
 		default:
-			if checkIfNew(member) {
-				appendToSet(member)
+			if checkIfNew(element) {
+				appendToSet(element)
 			}
 		}
 	}
@@ -49,4 +49,13 @@ func (s Set) checkIfNew(element any) bool {
 	}
 
 	return true
+}
+
+func (s *Set) setType(element any) {
+	s.Type = reflect.TypeOf(element)
+}
+
+func remove(set []any, index int) []any {
+	set[index] = set[len(set)-1]
+	return set[:len(set)-1]
 }

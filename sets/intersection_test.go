@@ -39,3 +39,15 @@ func TestIntersection_Level3(t *testing.T) {
 	require.Equal(t, 1, len(result.Data))
 	require.Equal(t, "apple", result.Data[0])
 }
+
+func TestIntersection_Level4(t *testing.T) {
+	x := sets.NewSet("apple", "banana", "cherry")
+	y := sets.NewSet("google", "microsoft", "apple")
+	z := sets.NewSet("peach", "cherry", "apple")
+	j := sets.NewSet("samsung", "apple")
+	k := sets.NewSet(6)
+
+	result := x.Intersection(y, z, j, k)
+
+	require.Equal(t, 0, len(result.Data))
+}

@@ -14,4 +14,9 @@ func TestAdd(t *testing.T) {
 	require.Nil(t, err)
 	require.Equal(t, 1, len(set.Data))
 	require.Equal(t, "juca", set.Data[0])
+
+	set.Add("juca")
+
+	require.Equal(t, 1, len(set.Data))
+	require.Equal(t, "juca", set.Data[0])
 }

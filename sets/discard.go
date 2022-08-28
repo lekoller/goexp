@@ -7,8 +7,3 @@ func (s *Set) Discard(element any) {
 		}
 	}
 }
-
-func remove(set []any, index int) []any {
-	set[index] = set[len(set)-1]
-	return set[:len(set)-1]
-}
