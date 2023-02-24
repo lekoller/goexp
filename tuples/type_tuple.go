@@ -1,17 +1,13 @@
 package tuples
 
-type Tuple struct {
-	data []any
-}
+type Tuple []any
 
-func NewTuple(elements ...any) (tuple *Tuple) {
-	var data []any
-	data = append(data, elements...)
+func NewTuple(elements ...any) (tuple Tuple) {
+	tuple = Tuple{}
 
-	tuple = &Tuple{data}
+	for _, element := range elements {
+		tuple = append(tuple, element)
+	}
+
 	return
-}
-
-func (s *Tuple) Data() []any {
-	return s.data
 }

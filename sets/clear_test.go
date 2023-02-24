@@ -11,5 +11,5 @@ func TestClear(t *testing.T) {
 	x := sets.NewSet("apple", "banana", "cherry", "orange")
 	x.Clear()
 
-	require.Equal(t, 0, len(x.Data()))
+	require.Equal(t, 0, len(x))
 }

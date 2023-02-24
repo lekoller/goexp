@@ -12,5 +12,5 @@ func TestDiscard(t *testing.T) {
 
 	x.Discard("apple")
 
-	require.Equal(t, 2, len(x.Data()))
+	require.Equal(t, 2, len(x))
 }

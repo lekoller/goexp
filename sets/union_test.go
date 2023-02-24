@@ -14,5 +14,5 @@ func TestUnion(t *testing.T) {
 
 	union := x.Union(y, z)
 
-	require.Equal(t, 6, len(union.Data()))
+	require.Equal(t, 6, len(union))
 }

@@ -6,10 +6,19 @@ import (
 )
 
 func (s *Set) Pop() (element any) {
-	rand.Seed(time.Now().UnixNano())
-	index := rand.Intn(len(s.data))
+	newSet := Set{}
 
-	element = s.data[index]
-	s.setData(remove(s.data, index))
+	rand.Seed(time.Now().UnixNano())
+	index := rand.Intn(len(*s))
+
+	for i, el := range *s {
+		if i == index {
+			element = el
+		} else {
+			newSet.Add(el)
+		}
+	}
+	*s = newSet
+
 	return
 }

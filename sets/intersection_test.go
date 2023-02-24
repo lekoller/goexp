@@ -13,8 +13,8 @@ func TestIntersection_Level1(t *testing.T) {
 
 	result := x.Intersection(y)
 
-	require.Equal(t, 1, len(result.Data()))
-	require.Equal(t, "apple", result.Data()[0])
+	require.Equal(t, 1, len(result))
+	require.Equal(t, "apple", result[0])
 }
 
 func TestIntersection_Level2(t *testing.T) {
@@ -24,8 +24,8 @@ func TestIntersection_Level2(t *testing.T) {
 
 	result := x.Intersection(y, z)
 
-	require.Equal(t, 1, len(result.Data()))
-	require.Equal(t, "apple", result.Data()[0])
+	require.Equal(t, 1, len(result))
+	require.Equal(t, "apple", result[0])
 }
 
 func TestIntersection_Level3(t *testing.T) {
@@ -36,8 +36,8 @@ func TestIntersection_Level3(t *testing.T) {
 
 	result := x.Intersection(y, z, j)
 
-	require.Equal(t, 1, len(result.Data()))
-	require.Equal(t, "apple", result.Data()[0])
+	require.Equal(t, 1, len(result))
+	require.Equal(t, "apple", result[0])
 }
 
 func TestIntersection_Level4(t *testing.T) {
@@ -49,7 +49,7 @@ func TestIntersection_Level4(t *testing.T) {
 
 	result := x.Intersection(y, z, j, k)
 
-	require.Equal(t, 0, len(result.Data()))
+	require.Equal(t, 0, len(result))
 }
 
 func TestIntersection_Numbers(t *testing.T) {
@@ -58,5 +58,5 @@ func TestIntersection_Numbers(t *testing.T) {
 
 	result := x.Intersection(j)
 
-	require.Equal(t, 1, len(result.Data()))
+	require.Equal(t, 1, len(result))
 }

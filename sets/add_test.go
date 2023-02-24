@@ -12,11 +12,17 @@ func TestAdd(t *testing.T) {
 	err := set.Add("juca")
 
 	require.Nil(t, err)
-	require.Equal(t, 1, len(set.Data()))
-	require.Equal(t, "juca", set.Data()[0])
+	require.Equal(t, 1, len(set))
+	require.Equal(t, "juca", set[0])
 
 	set.Add("juca")
 
-	require.Equal(t, 1, len(set.Data()))
-	require.Equal(t, "juca", set.Data()[0])
+	require.Equal(t, 1, len(set))
+	require.Equal(t, "juca", set[0])
+
+	set.Add("carlos")
+
+	require.Equal(t, 2, len(set))
+	require.Contains(t, set, "carlos")
+	require.Contains(t, set, "juca")
 }

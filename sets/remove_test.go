@@ -12,10 +12,10 @@ func TestRemove(t *testing.T) {
 
 	x.Remove("apple")
 
-	require.Equal(t, 2, len(x.Data()))
+	require.Equal(t, 2, len(x))
 
 	err := x.Remove("apple")
 
 	require.Error(t, err)
-	require.Equal(t, 2, len(x.Data()))
+	require.Equal(t, 2, len(x))
 }

@@ -1,9 +1,9 @@
 package sets
 
 func (s *Set) Discard(element any) {
-	for i, el := range s.Data() {
+	for i, el := range *s {
 		if el == element {
-			s.setData(remove(s.Data(), i))
+			*s = (remove(*s, i))
 		}
 	}
 }

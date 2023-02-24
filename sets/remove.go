@@ -3,9 +3,9 @@ package sets
 import "errors"
 
 func (s *Set) Remove(element any) error {
-	sizeBefore := len(s.Data())
+	sizeBefore := len(*s)
 	s.Discard(element)
-	sizeAfter := len(s.Data())
+	sizeAfter := len(*s)
 
 	if sizeBefore == sizeAfter {
 		return errors.New("element not found")

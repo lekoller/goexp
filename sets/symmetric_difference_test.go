@@ -13,5 +13,5 @@ func TestSymmetricDifference(t *testing.T) {
 
 	result := x.SymmetricDifference(y)
 
-	require.Equal(t, 4, len(result.Data()))
+	require.Equal(t, 4, len(result))
 }

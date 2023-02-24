@@ -1,15 +1,16 @@
 package sets
 
-func (s *Set) Intersection(sets ...*Set) (newSet *Set) {
+import "reflect"
+
+func (s *Set) Intersection(sets ...Set) (newSet Set) {
 	numberOfSets := len(sets)
 	repetitionMap := make(map[any]int)
-	newSet = &Set{}
-	newSet.setType(sets[0].Data()[0])
+	newSet = Set{}
 
 	for _, inSet := range sets {
-		for _, inEl := range inSet.Data() {
-			for _, sEl := range s.Data() {
-				if inEl == sEl {
+		for _, inEl := range inSet {
+			for _, sEl := range *s {
+				if reflect.TypeOf(inEl) == reflect.TypeOf(sEl) && inEl == sEl {
 					times := 1
 					if val, ok := repetitionMap[inEl]; ok {
 						times = val + 1
@@ -25,6 +26,6 @@ func (s *Set) Intersection(sets ...*Set) (newSet *Set) {
 	return
 }
 
-func (s *Set) IntersectionUpdate(sets ...*Set) {
-	s.setData(s.Intersection(sets...).Data())
+func (s *Set) IntersectionUpdate(sets ...Set) {
+	*s = s.Intersection(sets...)
 }

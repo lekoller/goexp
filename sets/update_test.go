@@ -14,5 +14,5 @@ func TestUpdate(t *testing.T) {
 
 	x.Update(y, z)
 
-	require.Equal(t, 6, len(x.Data()))
+	require.Equal(t, 6, len(x))
 }

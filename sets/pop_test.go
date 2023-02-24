@@ -13,6 +13,6 @@ func TestPop(t *testing.T) {
 	popped := x.Pop().(string)
 	subset := sets.NewSet(popped)
 
-	require.Equal(t, 3, len(x.Data()))
+	require.Equal(t, 3, len(x))
 	require.Equal(t, true, subset.IsSubset(y))
 }
